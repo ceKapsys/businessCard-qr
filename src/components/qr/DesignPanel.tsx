@@ -199,6 +199,8 @@ function LogoPicker({ design }: { design: DesignOptions }) {
           type="file"
           accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif"
           className="sr-only"
+          tabIndex={-1}
+          aria-label={t("design.logo.upload")}
           onChange={async (e) => {
             const file = e.target.files?.[0];
             e.target.value = "";
