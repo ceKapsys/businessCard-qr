@@ -97,7 +97,7 @@ export function ExportMenu({ encoder, payload, design, name }: Props) {
           >
             {EXPORT_SIZES.map((s) => (
               <option key={s} value={s}>
-                {s} × {s} px
+                {s} px
               </option>
             ))}
           </NativeSelect>

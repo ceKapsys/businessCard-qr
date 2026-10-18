@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest a new field, QR type, preset or improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: For a new field or QR type, include the exact format you expect in the QR code if you know it.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: This works fully in the browser, without a server or third-party requests.
+          required: true

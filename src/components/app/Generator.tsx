@@ -2,6 +2,7 @@
 
 import { EyeIcon, ShieldCheckIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
 
 import { FormPanel } from "@/components/form/FormPanel";
 import { DensityMeter } from "@/components/qr/DensityMeter";
@@ -33,6 +34,22 @@ function FormSkeleton() {
   );
 }
 
+/** True while `ref` is on screen (used to hide the mobile "jump to preview" button). */
+function useInView<T extends Element>() {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), {
+      threshold: 0.2,
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return [ref, inView] as const;
+}
+
 export function Generator() {
   const t = useTranslations();
   const { ready, loadedFromLink } = useAppStatus();
@@ -40,6 +57,7 @@ export function Generator() {
   const revision = useFormStore((s) => s.revision);
   const design = useDesignStore((s) => s.design);
   const { encoder, payload, name } = usePayload();
+  const [previewRef, previewInView] = useInView<HTMLElement>();
 
   return (
     <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-6 md:grid-cols-[minmax(0,1fr)_minmax(320px,380px)] md:items-start">
@@ -67,6 +85,7 @@ export function Generator() {
 
       <aside
         id="preview"
+        ref={previewRef}
         tabIndex={-1}
         aria-labelledby="preview-heading"
         className="grid scroll-mt-4 gap-4 focus:outline-none md:sticky md:top-4"
@@ -88,13 +107,15 @@ export function Generator() {
         </p>
       </aside>
 
-      <a
-        href="#preview"
-        className="bg-primary text-primary-foreground focus-visible:ring-ring/50 fixed right-4 bottom-4 z-40 inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium shadow-lg focus-visible:ring-[3px] focus-visible:outline-none md:hidden"
-      >
-        <EyeIcon aria-hidden="true" className="size-4" />
-        {t("app.jumpToPreview")}
-      </a>
+      {!previewInView && (
+        <a
+          href="#preview"
+          className="bg-primary text-primary-foreground focus-visible:ring-ring/50 fixed right-4 bottom-4 z-40 inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium shadow-lg focus-visible:ring-[3px] focus-visible:outline-none md:hidden"
+        >
+          <EyeIcon aria-hidden="true" className="size-4" />
+          {t("app.jumpToPreview")}
+        </a>
+      )}
     </div>
   );
 }

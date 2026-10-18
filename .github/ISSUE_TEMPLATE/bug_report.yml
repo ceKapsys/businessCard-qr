@@ -1,0 +1,46 @@
+name: Bug report
+description: Something doesn't work, or a QR code doesn't scan correctly
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Please don't paste real personal contact details.** Use made-up data.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Choose "Contact card"
+        2. Enter …
+        3. Scan with …
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: QR type
+      options: [Contact card (vCard), WhatsApp, Link, Wi-Fi, Not QR related]
+  - type: textarea
+    id: payload
+    attributes:
+      label: Encoded data (optional)
+      description: Copy it from "Show encoded data" under the preview (with dummy details).
+      render: text
+  - type: input
+    id: scanner
+    attributes:
+      label: Scanning device and app
+      placeholder: e.g. iPhone 15 Camera (iOS 26), Samsung A15 camera, Google Lens
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and OS used to generate the code
+      placeholder: e.g. Chrome 140 on Android 15

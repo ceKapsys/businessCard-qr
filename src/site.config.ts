@@ -13,7 +13,7 @@ export const siteConfig = {
   accentColor: "#0f766e",
   /** Path under /public. */
   logo: "/icons/icon.svg",
-  githubUrl: "https://github.com/cekapsys/businesscard-qr",
+  githubUrl: "https://github.com/ceKapsys/businessCard-qr",
   /** Absolute production URL, used for SEO/OG tags. */
   siteUrl: "https://businesscard-qr.vercel.app",
   /** ISO 3166-1 alpha-2 country used to parse local phone numbers. */
