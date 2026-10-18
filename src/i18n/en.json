@@ -1,0 +1,200 @@
+{
+  "app": {
+    "skipToContent": "Skip to content",
+    "privacy": "Your data never leaves your device.",
+    "privacyDetail": "Everything runs in your browser. Nothing is uploaded, stored on a server, or tracked.",
+    "github": "Source code on GitHub",
+    "formHeading": "Details",
+    "designHeading": "Design",
+    "previewHeading": "Preview",
+    "jumpToPreview": "Preview QR",
+    "loading": "Loading…",
+    "footer": "Open source under the MIT licence.",
+    "howItWorks": "Scan with any phone camera to get an “Add to Contacts” prompt with everything filled in."
+  },
+  "encoders": {
+    "legend": "QR code type",
+    "vcard": {
+      "label": "Contact card",
+      "description": "Saves your details straight into the phonebook."
+    },
+    "whatsapp": { "label": "WhatsApp", "description": "Opens a WhatsApp chat with you." },
+    "url": { "label": "Link", "description": "Opens a website." },
+    "wifi": {
+      "label": "Wi-Fi",
+      "description": "Joins a Wi-Fi network without typing the password."
+    }
+  },
+  "groups": {
+    "identity": "About you",
+    "contact": "Contact",
+    "social": "Social profiles",
+    "address": "Address",
+    "extra": "Extra"
+  },
+  "subTypes": {
+    "CELL": "Mobile",
+    "WORK": "Work",
+    "HOME": "Home"
+  },
+  "form": {
+    "required": "required",
+    "type": "Type",
+    "removeRow": "Remove {label} {index}"
+  },
+  "fields": {
+    "firstName": { "label": "First name", "placeholder": "Rahim" },
+    "lastName": { "label": "Last name", "placeholder": "Uddin" },
+    "org": { "label": "Company", "placeholder": "Acme Ltd." },
+    "title": { "label": "Job title", "placeholder": "Sales Manager" },
+    "phones": { "label": "Phone", "placeholder": "01712-345678", "add": "Add phone" },
+    "emails": { "label": "Email", "placeholder": "you@example.com", "add": "Add email" },
+    "website": { "label": "Website", "placeholder": "example.com" },
+    "whatsappSameAsMobile": {
+      "label": "WhatsApp is the same as my mobile number",
+      "description": "Uses the first mobile number above."
+    },
+    "whatsapp": {
+      "label": "WhatsApp number",
+      "placeholder": "01712-345678",
+      "description": "Local numbers are assumed to be in Bangladesh (+880)."
+    },
+    "linkedin": { "label": "LinkedIn", "placeholder": "linkedin.com/in/yourname" },
+    "facebook": { "label": "Facebook", "placeholder": "facebook.com/yourname" },
+    "instagram": { "label": "Instagram", "placeholder": "instagram.com/yourname" },
+    "x": { "label": "X (Twitter)", "placeholder": "x.com/yourname" },
+    "address": {
+      "label": "Address",
+      "street": "Street",
+      "city": "City",
+      "region": "Division / State",
+      "postcode": "Postcode",
+      "country": "Country"
+    },
+    "note": {
+      "label": "Note",
+      "placeholder": "Anything else people should know",
+      "description": "Long notes make the QR code denser and harder to scan."
+    },
+    "message": {
+      "label": "Pre-filled message",
+      "placeholder": "Hi! I got your number from your card."
+    },
+    "url": { "label": "Link", "placeholder": "https://example.com" },
+    "ssid": { "label": "Network name (SSID)", "placeholder": "MyHomeWiFi" },
+    "security": {
+      "label": "Security",
+      "options": { "WPA": "WPA / WPA2 / WPA3", "WEP": "WEP", "nopass": "None (open network)" }
+    },
+    "password": { "label": "Password" },
+    "hidden": { "label": "Hidden network" }
+  },
+  "errors": {
+    "required": "This field is required.",
+    "tooLong": "This is too long.",
+    "invalidPhone": "Enter a valid phone number, e.g. 01712-345678 or +8801712345678.",
+    "invalidEmail": "Enter a valid email address.",
+    "invalidUrl": "Enter a valid web address, e.g. example.com."
+  },
+  "design": {
+    "presets": {
+      "heading": "Presets",
+      "minimal": "Minimal",
+      "rounded": "Rounded",
+      "dark": "Dark",
+      "brand": "Brand",
+      "saveLabel": "Save current design as a preset",
+      "namePlaceholder": "Preset name",
+      "save": "Save",
+      "delete": "Delete preset {name}",
+      "yours": "Your presets"
+    },
+    "colors": {
+      "heading": "Colours",
+      "fg": "Foreground",
+      "bg": "Background",
+      "transparent": "Transparent background",
+      "transparentHint": "PNG, SVG and WebP only. JPEG always uses the background colour.",
+      "gradient": "Gradient",
+      "gradientColor": "Gradient end colour",
+      "rotation": "Gradient angle"
+    },
+    "shape": "Shape",
+    "dotStyle": "Dots",
+    "cornerSquareStyle": "Corner squares",
+    "cornerDotStyle": "Corner dots",
+    "styles": {
+      "square": "Square",
+      "dots": "Dots",
+      "rounded": "Rounded",
+      "classy": "Classy",
+      "classy-rounded": "Classy rounded",
+      "extra-rounded": "Extra rounded",
+      "dot": "Dot"
+    },
+    "margin": "Margin (quiet zone)",
+    "ecc": {
+      "label": "Error correction",
+      "L": "Low (7%)",
+      "M": "Medium (15%)",
+      "Q": "Quartile (25%)",
+      "H": "High (30%)",
+      "forced": "Set to High while a logo is used."
+    },
+    "logo": {
+      "label": "Logo",
+      "upload": "Upload logo",
+      "remove": "Remove logo",
+      "size": "Logo size",
+      "hint": "The image is read on your device and never uploaded.",
+      "invalid": "Please choose an image file.",
+      "tooLarge": "That image is too large (max 5 MB)."
+    }
+  },
+  "density": {
+    "label": "Scan density",
+    "good": "Good — easy to scan",
+    "ok": "OK — scan at a reasonable size",
+    "risky": "Risky — may be hard to scan",
+    "tooLong": "Too much data for a QR code",
+    "details": "{bytes} bytes · version {version} · {modules}×{modules} modules",
+    "hintRisky": "Remove the note or logo, or shorten some fields, to improve scanning.",
+    "hintTooLong": "Remove some details — this cannot fit in a QR code.",
+    "lowContrast": "Low contrast between foreground and background — the code may not scan.",
+    "inverted": "Light dots on a dark background don’t scan on some phones."
+  },
+  "export": {
+    "heading": "Download",
+    "format": "Format",
+    "size": "Size",
+    "download": "Download {format}",
+    "copy": "Copy image",
+    "copied": "Image copied to clipboard.",
+    "copyFailed": "Could not copy the image. Try downloading it instead.",
+    "vcf": "Download contact (.vcf)",
+    "failed": "Could not create the image."
+  },
+  "share": {
+    "copyLink": "Copy edit link",
+    "linkCopied": "Link copied. Anyone with it can edit a copy of this QR.",
+    "linkNote": "The link stores your details in the part after “#”, which is never sent to the server. Logos are not included.",
+    "manualCopy": "Copy this link:",
+    "reset": "Reset",
+    "resetTitle": "Start over?",
+    "resetDescription": "This clears all details and the design on this device. Saved presets are kept.",
+    "resetConfirm": "Reset everything",
+    "cancel": "Cancel",
+    "loadedFromLink": "Loaded from a shared link."
+  },
+  "payload": {
+    "show": "Show encoded data",
+    "empty": "Nothing to encode yet."
+  },
+  "preview": {
+    "alt": "QR code preview",
+    "empty": "Fill in the form to generate your QR code.",
+    "error": "The preview could not be drawn."
+  },
+  "theme": { "label": "Theme", "system": "System", "light": "Light", "dark": "Dark" },
+  "language": { "label": "Language" }
+}

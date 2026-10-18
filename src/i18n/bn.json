@@ -1,0 +1,194 @@
+{
+  "app": {
+    "skipToContent": "মূল অংশে যান",
+    "privacy": "আপনার তথ্য কখনো আপনার ডিভাইসের বাইরে যায় না।",
+    "privacyDetail": "সবকিছু আপনার ব্রাউজারেই চলে। কিছুই আপলোড, সার্ভারে সংরক্ষণ বা ট্র্যাক করা হয় না।",
+    "github": "GitHub-এ সোর্স কোড",
+    "formHeading": "বিবরণ",
+    "designHeading": "ডিজাইন",
+    "previewHeading": "প্রিভিউ",
+    "jumpToPreview": "QR দেখুন",
+    "loading": "লোড হচ্ছে…",
+    "footer": "MIT লাইসেন্সের অধীনে ওপেন সোর্স।",
+    "howItWorks": "যেকোনো ফোনের ক্যামেরা দিয়ে স্ক্যান করলেই সব তথ্যসহ “কন্টাক্টে যোগ করুন” অপশন আসবে।"
+  },
+  "encoders": {
+    "legend": "QR কোডের ধরন",
+    "vcard": { "label": "কন্টাক্ট কার্ড", "description": "আপনার তথ্য সরাসরি ফোনবুকে সেভ হয়।" },
+    "whatsapp": { "label": "হোয়াটসঅ্যাপ", "description": "আপনার সাথে হোয়াটসঅ্যাপ চ্যাট খোলে।" },
+    "url": { "label": "লিংক", "description": "একটি ওয়েবসাইট খোলে।" },
+    "wifi": { "label": "ওয়াই-ফাই", "description": "পাসওয়ার্ড না লিখেই ওয়াই-ফাইতে যুক্ত হয়।" }
+  },
+  "groups": {
+    "identity": "আপনার পরিচয়",
+    "contact": "যোগাযোগ",
+    "social": "সোশ্যাল প্রোফাইল",
+    "address": "ঠিকানা",
+    "extra": "অতিরিক্ত"
+  },
+  "subTypes": {
+    "CELL": "মোবাইল",
+    "WORK": "অফিস",
+    "HOME": "বাসা"
+  },
+  "form": {
+    "required": "আবশ্যক",
+    "type": "ধরন",
+    "removeRow": "{label} {index} মুছুন"
+  },
+  "fields": {
+    "firstName": { "label": "নামের প্রথম অংশ", "placeholder": "রহিম" },
+    "lastName": { "label": "নামের শেষ অংশ", "placeholder": "উদ্দিন" },
+    "org": { "label": "প্রতিষ্ঠান", "placeholder": "অ্যাকমি লিমিটেড" },
+    "title": { "label": "পদবি", "placeholder": "সেলস ম্যানেজার" },
+    "phones": { "label": "ফোন", "placeholder": "01712-345678", "add": "ফোন যোগ করুন" },
+    "emails": { "label": "ইমেইল", "placeholder": "you@example.com", "add": "ইমেইল যোগ করুন" },
+    "website": { "label": "ওয়েবসাইট", "placeholder": "example.com" },
+    "whatsappSameAsMobile": {
+      "label": "হোয়াটসঅ্যাপ নম্বর আমার মোবাইল নম্বরই",
+      "description": "উপরের প্রথম মোবাইল নম্বরটি ব্যবহার করা হবে।"
+    },
+    "whatsapp": {
+      "label": "হোয়াটসঅ্যাপ নম্বর",
+      "placeholder": "01712-345678",
+      "description": "দেশের কোড ছাড়া নম্বর বাংলাদেশের (+880) ধরা হবে।"
+    },
+    "linkedin": { "label": "লিংকডইন", "placeholder": "linkedin.com/in/yourname" },
+    "facebook": { "label": "ফেসবুক", "placeholder": "facebook.com/yourname" },
+    "instagram": { "label": "ইনস্টাগ্রাম", "placeholder": "instagram.com/yourname" },
+    "x": { "label": "এক্স (টুইটার)", "placeholder": "x.com/yourname" },
+    "address": {
+      "label": "ঠিকানা",
+      "street": "রাস্তা / বাড়ি",
+      "city": "শহর",
+      "region": "বিভাগ / রাজ্য",
+      "postcode": "পোস্টকোড",
+      "country": "দেশ"
+    },
+    "note": {
+      "label": "নোট",
+      "placeholder": "অন্য কিছু যা মানুষের জানা দরকার",
+      "description": "লম্বা নোট QR কোডকে ঘন করে এবং স্ক্যান করা কঠিন করে।"
+    },
+    "message": {
+      "label": "আগে থেকে লেখা মেসেজ",
+      "placeholder": "হাই! আপনার কার্ড থেকে নম্বরটি পেয়েছি।"
+    },
+    "url": { "label": "লিংক", "placeholder": "https://example.com" },
+    "ssid": { "label": "নেটওয়ার্কের নাম (SSID)", "placeholder": "MyHomeWiFi" },
+    "security": {
+      "label": "নিরাপত্তা",
+      "options": { "WPA": "WPA / WPA2 / WPA3", "WEP": "WEP", "nopass": "নেই (খোলা নেটওয়ার্ক)" }
+    },
+    "password": { "label": "পাসওয়ার্ড" },
+    "hidden": { "label": "লুকানো নেটওয়ার্ক" }
+  },
+  "errors": {
+    "required": "এই ঘরটি পূরণ করা আবশ্যক।",
+    "tooLong": "লেখাটি খুব লম্বা।",
+    "invalidPhone": "সঠিক ফোন নম্বর দিন, যেমন 01712-345678 বা +8801712345678।",
+    "invalidEmail": "সঠিক ইমেইল ঠিকানা দিন।",
+    "invalidUrl": "সঠিক ওয়েব ঠিকানা দিন, যেমন example.com।"
+  },
+  "design": {
+    "presets": {
+      "heading": "প্রিসেট",
+      "minimal": "সাধারণ",
+      "rounded": "গোলাকার",
+      "dark": "গাঢ়",
+      "brand": "ব্র্যান্ড",
+      "saveLabel": "বর্তমান ডিজাইনটি প্রিসেট হিসেবে সেভ করুন",
+      "namePlaceholder": "প্রিসেটের নাম",
+      "save": "সেভ",
+      "delete": "{name} প্রিসেট মুছুন",
+      "yours": "আপনার প্রিসেট"
+    },
+    "colors": {
+      "heading": "রং",
+      "fg": "সামনের রং",
+      "bg": "পটভূমির রং",
+      "transparent": "স্বচ্ছ পটভূমি",
+      "transparentHint": "শুধু PNG, SVG ও WebP-তে। JPEG সবসময় পটভূমির রং ব্যবহার করে।",
+      "gradient": "গ্রেডিয়েন্ট",
+      "gradientColor": "গ্রেডিয়েন্টের শেষ রং",
+      "rotation": "গ্রেডিয়েন্টের কোণ"
+    },
+    "shape": "আকৃতি",
+    "dotStyle": "ডট",
+    "cornerSquareStyle": "কোণের বর্গ",
+    "cornerDotStyle": "কোণের ডট",
+    "styles": {
+      "square": "বর্গাকার",
+      "dots": "ডট",
+      "rounded": "গোলাকার",
+      "classy": "ক্লাসি",
+      "classy-rounded": "ক্লাসি গোলাকার",
+      "extra-rounded": "বেশি গোলাকার",
+      "dot": "ডট"
+    },
+    "margin": "মার্জিন (ফাঁকা জায়গা)",
+    "ecc": {
+      "label": "ত্রুটি সংশোধন",
+      "L": "কম (৭%)",
+      "M": "মাঝারি (১৫%)",
+      "Q": "কোয়ার্টাইল (২৫%)",
+      "H": "উচ্চ (৩০%)",
+      "forced": "লোগো থাকলে উচ্চ মাত্রায় সেট থাকে।"
+    },
+    "logo": {
+      "label": "লোগো",
+      "upload": "লোগো আপলোড করুন",
+      "remove": "লোগো সরান",
+      "size": "লোগোর আকার",
+      "hint": "ছবিটি আপনার ডিভাইসেই পড়া হয়, কখনো আপলোড হয় না।",
+      "invalid": "অনুগ্রহ করে একটি ছবি বেছে নিন।",
+      "tooLarge": "ছবিটি খুব বড় (সর্বোচ্চ ৫ MB)।"
+    }
+  },
+  "density": {
+    "label": "স্ক্যান ঘনত্ব",
+    "good": "ভালো — সহজে স্ক্যান হবে",
+    "ok": "ঠিক আছে — যুক্তিসঙ্গত আকারে প্রিন্ট করুন",
+    "risky": "ঝুঁকিপূর্ণ — স্ক্যান করা কঠিন হতে পারে",
+    "tooLong": "QR কোডের জন্য তথ্য খুব বেশি",
+    "details": "{bytes} বাইট · ভার্সন {version} · {modules}×{modules} মডিউল",
+    "hintRisky": "স্ক্যান সহজ করতে নোট বা লোগো সরান, অথবা কিছু তথ্য ছোট করুন।",
+    "hintTooLong": "কিছু তথ্য সরান — এটি QR কোডে আঁটবে না।",
+    "lowContrast": "সামনের ও পটভূমির রঙের পার্থক্য কম — কোডটি স্ক্যান নাও হতে পারে।",
+    "inverted": "গাঢ় পটভূমিতে হালকা ডট কিছু ফোনে স্ক্যান হয় না।"
+  },
+  "export": {
+    "heading": "ডাউনলোড",
+    "format": "ফরম্যাট",
+    "size": "আকার",
+    "download": "{format} ডাউনলোড করুন",
+    "copy": "ছবি কপি করুন",
+    "copied": "ছবি ক্লিপবোর্ডে কপি হয়েছে।",
+    "copyFailed": "ছবি কপি করা যায়নি। ডাউনলোড করে দেখুন।",
+    "vcf": "কন্টাক্ট ডাউনলোড (.vcf)",
+    "failed": "ছবি তৈরি করা যায়নি।"
+  },
+  "share": {
+    "copyLink": "এডিট লিংক কপি করুন",
+    "linkCopied": "লিংক কপি হয়েছে। লিংক পেলে যে কেউ এই QR-এর একটি কপি এডিট করতে পারবে।",
+    "linkNote": "লিংকে আপনার তথ্য “#” চিহ্নের পরের অংশে থাকে, যা কখনো সার্ভারে পাঠানো হয় না। লোগো যুক্ত হয় না।",
+    "manualCopy": "এই লিংকটি কপি করুন:",
+    "reset": "রিসেট",
+    "resetTitle": "নতুন করে শুরু করবেন?",
+    "resetDescription": "এই ডিভাইস থেকে সব তথ্য ও ডিজাইন মুছে যাবে। সেভ করা প্রিসেট থাকবে।",
+    "resetConfirm": "সব রিসেট করুন",
+    "cancel": "বাতিল",
+    "loadedFromLink": "শেয়ার করা লিংক থেকে লোড হয়েছে।"
+  },
+  "payload": {
+    "show": "এনকোড করা ডেটা দেখুন",
+    "empty": "এখনো এনকোড করার মতো কিছু নেই।"
+  },
+  "preview": {
+    "alt": "QR কোড প্রিভিউ",
+    "empty": "QR কোড তৈরি করতে ফর্মটি পূরণ করুন।",
+    "error": "প্রিভিউ দেখানো যায়নি।"
+  },
+  "theme": { "label": "থিম", "system": "সিস্টেম", "light": "লাইট", "dark": "ডার্ক" },
+  "language": { "label": "ভাষা" }
+}
