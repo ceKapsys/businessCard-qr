@@ -2,6 +2,7 @@ import { buildQrOptions, logoImageSize } from "@/lib/design/qrOptions";
 import { DEFAULT_DESIGN } from "@/lib/design/presets";
 import { checkQrContrast, contrastRatio } from "@/lib/qr/contrast";
 import { measureDensity } from "@/lib/qr/density";
+import { measureFieldCosts } from "@/lib/qr/fieldCosts";
 import { toUtf8BinaryString } from "@/lib/qr/utf8";
 import { qrFileName, slugify } from "@/lib/download";
 
@@ -81,5 +82,42 @@ describe("file names", () => {
     expect(slugify("Rahim Uddin, PhD")).toBe("rahim-uddin-phd");
     expect(qrFileName("রহিম উদ্দিন", "png")).toBe("রহিম-উদ্দিন-qr.png");
     expect(qrFileName("  ", "jpeg")).toBe("qr-code-qr.jpeg");
+  });
+});
+
+describe("print-size density", () => {
+  it("rates by module size at the printed width", () => {
+    const payload = "x".repeat(150);
+    const small = measureDensity(payload, "L", { printMm: 15, marginPct: 4 });
+    const large = measureDensity(payload, "L", { printMm: 40, marginPct: 4 });
+    expect(small.moduleMm).toBeLessThan(large.moduleMm ?? 0);
+    expect(small.level).toBe("risky");
+    expect(large.level).toBe("good");
+  });
+
+  it("suggests a minimum print size where modules reach the good threshold", () => {
+    const d = measureDensity("x".repeat(150), "L", { printMm: 15, marginPct: 4 });
+    const atMin = measureDensity("x".repeat(150), "L", {
+      printMm: d.minPrintMm ?? 0,
+      marginPct: 4,
+    });
+    expect(atMin.level).toBe("good");
+  });
+});
+
+describe("field costs", () => {
+  it("lists what each filled-in field adds, largest first, skipping required ones", async () => {
+    const { vcardEncoder } = await import("@/lib/encoders/vcard");
+    const costs = measureFieldCosts(vcardEncoder, {
+      ...structuredClone(vcardEncoder.defaults),
+      firstName: "Rahim",
+      phones: [{ type: "CELL", value: "01712345678" }],
+      note: "A fairly long note about the person that costs bytes",
+    });
+    const ids = costs.map((c) => c.fieldId);
+    expect(ids).toContain("note");
+    expect(ids).toContain("whatsappLink");
+    expect(ids).not.toContain("firstName");
+    expect(costs[0].bytes).toBeGreaterThanOrEqual(costs[costs.length - 1].bytes);
   });
 });

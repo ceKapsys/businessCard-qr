@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { DEFAULT_DESIGN } from "@/lib/design/presets";
+import { DEFAULT_DESIGN, SMALL_PRINT_STYLE } from "@/lib/design/presets";
 import { sanitizeStyle, toStyle } from "@/lib/design/sanitize";
 import type { DesignOptions, DesignPreset, DesignStyle } from "@/lib/design/types";
 import { safeStorage, STORAGE_KEYS } from "@/lib/storage";
@@ -14,6 +14,8 @@ export type DesignState = {
   setLogo: (logo: string | null) => void;
   savePreset: (name: string) => void;
   deletePreset: (id: string) => void;
+  /** Settings that make the smallest, most robust code for tiny prints. */
+  optimiseForSmallPrint: () => void;
   reset: () => void;
 };
 
@@ -40,6 +42,14 @@ export const useDesignStore = create<DesignState>()(
           return { userPresets: [...s.userPresets, preset].slice(-MAX_USER_PRESETS) };
         }),
       deletePreset: (id) => set((s) => ({ userPresets: s.userPresets.filter((p) => p.id !== id) })),
+      optimiseForSmallPrint: () =>
+        set((s) => ({
+          design: {
+            ...s.design,
+            ...SMALL_PRINT_STYLE,
+            gradient: { ...s.design.gradient, enabled: false },
+          },
+        })),
       reset: () => set({ design: DEFAULT_DESIGN }),
     }),
     {

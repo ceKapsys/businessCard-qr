@@ -14,10 +14,22 @@
   },
   "encoders": {
     "legend": "QR কোডের ধরন",
-    "vcard": { "label": "কন্টাক্ট কার্ড", "description": "আপনার তথ্য সরাসরি ফোনবুকে সেভ হয়।" },
-    "whatsapp": { "label": "হোয়াটসঅ্যাপ", "description": "আপনার সাথে হোয়াটসঅ্যাপ চ্যাট খোলে।" },
-    "url": { "label": "লিংক", "description": "একটি ওয়েবসাইট খোলে।" },
-    "wifi": { "label": "ওয়াই-ফাই", "description": "পাসওয়ার্ড না লিখেই ওয়াই-ফাইতে যুক্ত হয়।" }
+    "vcard": {
+      "label": "কন্টাক্ট কার্ড",
+      "description": "আপনার তথ্য সরাসরি ফোনবুকে সেভ হয়।"
+    },
+    "whatsapp": {
+      "label": "হোয়াটসঅ্যাপ",
+      "description": "আপনার সাথে হোয়াটসঅ্যাপ চ্যাট খোলে।"
+    },
+    "url": {
+      "label": "লিংক",
+      "description": "একটি ওয়েবসাইট খোলে।"
+    },
+    "wifi": {
+      "label": "ওয়াই-ফাই",
+      "description": "পাসওয়ার্ড না লিখেই ওয়াই-ফাইতে যুক্ত হয়।"
+    }
   },
   "groups": {
     "identity": "আপনার পরিচয়",
@@ -37,13 +49,36 @@
     "removeRow": "{label} {index} মুছুন"
   },
   "fields": {
-    "firstName": { "label": "নামের প্রথম অংশ", "placeholder": "রহিম" },
-    "lastName": { "label": "নামের শেষ অংশ", "placeholder": "উদ্দিন" },
-    "org": { "label": "প্রতিষ্ঠান", "placeholder": "অ্যাকমি লিমিটেড" },
-    "title": { "label": "পদবি", "placeholder": "সেলস ম্যানেজার" },
-    "phones": { "label": "ফোন", "placeholder": "01712-345678", "add": "ফোন যোগ করুন" },
-    "emails": { "label": "ইমেইল", "placeholder": "you@example.com", "add": "ইমেইল যোগ করুন" },
-    "website": { "label": "ওয়েবসাইট", "placeholder": "example.com" },
+    "firstName": {
+      "label": "নামের প্রথম অংশ",
+      "placeholder": "রহিম"
+    },
+    "lastName": {
+      "label": "নামের শেষ অংশ",
+      "placeholder": "উদ্দিন"
+    },
+    "org": {
+      "label": "প্রতিষ্ঠান",
+      "placeholder": "অ্যাকমি লিমিটেড"
+    },
+    "title": {
+      "label": "পদবি",
+      "placeholder": "সেলস ম্যানেজার"
+    },
+    "phones": {
+      "label": "ফোন",
+      "placeholder": "01712-345678",
+      "add": "ফোন যোগ করুন"
+    },
+    "emails": {
+      "label": "ইমেইল",
+      "placeholder": "you@example.com",
+      "add": "ইমেইল যোগ করুন"
+    },
+    "website": {
+      "label": "ওয়েবসাইট",
+      "placeholder": "example.com"
+    },
     "whatsappSameAsMobile": {
       "label": "হোয়াটসঅ্যাপ নম্বর আমার মোবাইল নম্বরই",
       "description": "উপরের প্রথম মোবাইল নম্বরটি ব্যবহার করা হবে।"
@@ -53,10 +88,26 @@
       "placeholder": "01712-345678",
       "description": "দেশের কোড ছাড়া নম্বর বাংলাদেশের (+880) ধরা হবে।"
     },
-    "linkedin": { "label": "লিংকডইন", "placeholder": "linkedin.com/in/yourname" },
-    "facebook": { "label": "ফেসবুক", "placeholder": "facebook.com/yourname" },
-    "instagram": { "label": "ইনস্টাগ্রাম", "placeholder": "instagram.com/yourname" },
-    "x": { "label": "এক্স (টুইটার)", "placeholder": "x.com/yourname" },
+    "whatsappLink": {
+      "label": "হোয়াটসঅ্যাপ চ্যাট লিংক যোগ করুন",
+      "description": "প্রায় ৭০ বাইট বাড়ে। খুব ছোট প্রিন্টের জন্য বন্ধ রাখুন — মোবাইল নম্বর থেকেই হোয়াটসঅ্যাপ আপনাকে খুঁজে পাবে।"
+    },
+    "linkedin": {
+      "label": "লিংকডইন",
+      "placeholder": "linkedin.com/in/yourname"
+    },
+    "facebook": {
+      "label": "ফেসবুক",
+      "placeholder": "facebook.com/yourname"
+    },
+    "instagram": {
+      "label": "ইনস্টাগ্রাম",
+      "placeholder": "instagram.com/yourname"
+    },
+    "x": {
+      "label": "এক্স (টুইটার)",
+      "placeholder": "x.com/yourname"
+    },
     "address": {
       "label": "ঠিকানা",
       "street": "রাস্তা / বাড়ি",
@@ -74,14 +125,28 @@
       "label": "আগে থেকে লেখা মেসেজ",
       "placeholder": "হাই! আপনার কার্ড থেকে নম্বরটি পেয়েছি।"
     },
-    "url": { "label": "লিংক", "placeholder": "https://example.com" },
-    "ssid": { "label": "নেটওয়ার্কের নাম (SSID)", "placeholder": "MyHomeWiFi" },
+    "url": {
+      "label": "লিংক",
+      "placeholder": "https://example.com"
+    },
+    "ssid": {
+      "label": "নেটওয়ার্কের নাম (SSID)",
+      "placeholder": "MyHomeWiFi"
+    },
     "security": {
       "label": "নিরাপত্তা",
-      "options": { "WPA": "WPA / WPA2 / WPA3", "WEP": "WEP", "nopass": "নেই (খোলা নেটওয়ার্ক)" }
+      "options": {
+        "WPA": "WPA / WPA2 / WPA3",
+        "WEP": "WEP",
+        "nopass": "নেই (খোলা নেটওয়ার্ক)"
+      }
     },
-    "password": { "label": "পাসওয়ার্ড" },
-    "hidden": { "label": "লুকানো নেটওয়ার্ক" }
+    "password": {
+      "label": "পাসওয়ার্ড"
+    },
+    "hidden": {
+      "label": "লুকানো নেটওয়ার্ক"
+    }
   },
   "errors": {
     "required": "এই ঘরটি পূরণ করা আবশ্যক।",
@@ -147,13 +212,19 @@
   },
   "density": {
     "label": "স্ক্যান ঘনত্ব",
-    "good": "ভালো — সহজে স্ক্যান হবে",
-    "ok": "ঠিক আছে — যুক্তিসঙ্গত আকারে প্রিন্ট করুন",
-    "risky": "ঝুঁকিপূর্ণ — স্ক্যান করা কঠিন হতে পারে",
+    "printSize": "প্রিন্টের আকার (মিমি)",
+    "printSizeHint": "কার্ডে QR-এর প্রস্থ, যেমন ২৫ মিমি।",
+    "good": "ভালো — এই আকারে সহজে স্ক্যান হবে",
+    "ok": "ঠিক আছে — বেশিরভাগ ফোনে স্ক্যান হবে",
+    "risky": "ঝুঁকিপূর্ণ — এই প্রিন্ট আকারের জন্য খুব ঘন",
     "tooLong": "QR কোডের জন্য তথ্য খুব বেশি",
-    "details": "{bytes} বাইট · ভার্সন {version} · {modules}×{modules} মডিউল",
-    "hintRisky": "স্ক্যান সহজ করতে নোট বা লোগো সরান, অথবা কিছু তথ্য ছোট করুন।",
+    "details": "{bytes} বাইট · {modules}×{modules} মডিউল · {printMm} মিমি-তে প্রতি মডিউল {moduleMm} মিমি",
+    "hintMinSize": "অন্তত {mm} মিমি চওড়া করে প্রিন্ট করুন, অথবা নিচের কিছু তথ্য সরান।",
+    "hintLogo": "লোগো থাকলে উচ্চ ত্রুটি সংশোধন লাগে, ফলে কোড অনেক ঘন হয়। ছোট প্রিন্টে লোগো সরান।",
     "hintTooLong": "কিছু তথ্য সরান — এটি QR কোডে আঁটবে না।",
+    "biggest": "কোডের সবচেয়ে বড় অংশগুলো:",
+    "bytes": "{bytes} বাইট",
+    "optimise": "ছোট প্রিন্টের জন্য ডিজাইন ঠিক করুন",
     "lowContrast": "সামনের ও পটভূমির রঙের পার্থক্য কম — কোডটি স্ক্যান নাও হতে পারে।",
     "inverted": "গাঢ় পটভূমিতে হালকা ডট কিছু ফোনে স্ক্যান হয় না।"
   },
@@ -189,6 +260,13 @@
     "empty": "QR কোড তৈরি করতে ফর্মটি পূরণ করুন।",
     "error": "প্রিভিউ দেখানো যায়নি।"
   },
-  "theme": { "label": "থিম", "system": "সিস্টেম", "light": "লাইট", "dark": "ডার্ক" },
-  "language": { "label": "ভাষা" }
+  "theme": {
+    "label": "থিম",
+    "system": "সিস্টেম",
+    "light": "লাইট",
+    "dark": "ডার্ক"
+  },
+  "language": {
+    "label": "ভাষা"
+  }
 }

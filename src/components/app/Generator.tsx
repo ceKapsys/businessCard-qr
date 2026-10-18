@@ -56,7 +56,7 @@ export function Generator() {
   const typeId = useFormStore((s) => s.typeId);
   const revision = useFormStore((s) => s.revision);
   const design = useDesignStore((s) => s.design);
-  const { encoder, payload, name } = usePayload();
+  const { encoder, values, payload, name } = usePayload();
   const [previewRef, previewInView] = useInView<HTMLElement>();
 
   return (
@@ -93,7 +93,7 @@ export function Generator() {
         <Card className="grid gap-4">
           <CardTitle id="preview-heading">{t("app.previewHeading")}</CardTitle>
           <QRPreview payload={payload} design={design} label={`${t("preview.alt")}: ${name}`} />
-          <DensityMeter payload={payload} design={design} />
+          <DensityMeter encoder={encoder} values={values} payload={payload} design={design} />
           <ExportMenu encoder={encoder} payload={payload} design={design} name={name} />
           <ShareActions />
           <PayloadView payload={payload} />

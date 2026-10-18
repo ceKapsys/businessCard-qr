@@ -85,11 +85,11 @@ export const VCARD_FIELD_MAP: Record<string, VCardMapping> = {
 
 The mapping kinds are:
 
-| kind   | output                                        | use for                    |
-| ------ | --------------------------------------------- | -------------------------- |
-| `text` | `PROPERTY;CHARSET=UTF-8:<escaped value>`      | ORG, TITLE, NOTE, NICKNAME |
-| `uri`  | `PROPERTY:<normalised URL>`                   | URL                        |
-| `item` | `itemN.URL:<url>` + `itemN.X-ABLabel:<label>` | social profiles, links     |
+| kind   | output                                                       | use for                    |
+| ------ | ------------------------------------------------------------ | -------------------------- |
+| `text` | `PROPERTY:<escaped value>` (+ `;CHARSET=UTF-8` if non-ASCII) | ORG, TITLE, NOTE, NICKNAME |
+| `uri`  | `PROPERTY:<normalised URL>`                                  | URL                        |
+| `item` | `itemN.URL:<url>` + `itemN.X-ABLabel:<label>`                | social profiles, links     |
 
 **3. Add the strings** to `src/i18n/en.json` and `bn.json`:
 

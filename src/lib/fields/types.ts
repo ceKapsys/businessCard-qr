@@ -55,4 +55,9 @@ export type FieldDef = {
   /** Hide (and skip validating) the field unless this returns true. */
   visibleWhen?: (values: FormValues) => boolean;
   autoComplete?: string;
+  /**
+   * For toggles: turning it on adds data to the QR code. The density meter then
+   * reports how many bytes it costs, like any filled-in field.
+   */
+  addsContent?: boolean;
 };

@@ -3,7 +3,7 @@
 Turn your contact details into a QR code. Anyone who scans it with a phone camera gets an
 **“Add to Contacts”** prompt with everything filled in, including a WhatsApp link.
 
-Everything runs in your browser. **There is no backend, no database, no analytics, and no data
+**Live at [qr.cekapsys.com](https://qr.cekapsys.com).** Everything runs in your browser. **There is no backend, no database, no analytics, and no data
 ever leaves your device.**
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FceKapsys%2FbusinessCard-qr&project-name=cardqr&repository-name=cardqr)
@@ -58,19 +58,42 @@ contact. A typical card looks like this:
 ```text
 BEGIN:VCARD
 VERSION:3.0
-N;CHARSET=UTF-8:Uddin;Rahim;;;
-FN;CHARSET=UTF-8:Rahim Uddin
-ORG;CHARSET=UTF-8:Acme Ltd.
+N:Uddin;Rahim;;;
+FN:Rahim Uddin
+ORG:Acme Ltd.
 TEL;TYPE=CELL:+8801712345678
-EMAIL;TYPE=INTERNET,WORK:rahim@acme.com
+EMAIL;TYPE=WORK:rahim@acme.com
 item1.URL:https://wa.me/8801712345678
 item1.X-ABLabel:WhatsApp
 END:VCARD
 ```
 
 - Lines end with CRLF. Empty fields are left out, and `\ , ;` and newlines are escaped.
+- `CHARSET=UTF-8` is added only to lines that contain non-ASCII text (e.g. a Bangla name).
+  vCard 3.0 readers assume UTF-8 anyway, and skipping it elsewhere keeps the code small.
 - There is no `PHOTO`: an embedded image would make the code far too dense to scan.
 - Open **“Show encoded data”** under the preview to see the exact text in your code.
+
+### Small prints (business cards)
+
+What makes a QR code hard to scan is **module size**: the printed width of one QR “pixel”. The
+more data in the code, the more modules it has, and the smaller each one gets at a fixed print
+size. Enter your printed size under the preview (default **25 mm**) and the meter rates the code
+by module size: ≥ 0.45 mm is good, ≥ 0.38 mm OK, smaller is risky. It also tells you the minimum
+print size for reliable scanning, and lists the fields that take up the most bytes.
+
+For a 25 × 25 mm QR:
+
+- Use error correction **L** (the default) and square modules. **Optimise design for small
+  print** sets both in one click. Rounded/dot styles and gradients make small codes harder to read.
+- Don’t use a logo. It forces error correction H, which makes the code much denser.
+- Keep the card short: name, company, title, one phone and one email. Leave the note, address and
+  social links out, and consider turning off the **WhatsApp chat link** (about 70 bytes). WhatsApp
+  still finds you through your mobile number.
+- Print the PNG at 1024 px or the SVG, never a screenshot of the preview.
+
+A typical card at 25 mm (name, company, title, phone, email, website): about 0.40 mm modules with
+the WhatsApp link, 0.47 mm without.
 
 ### Why WhatsApp needs two things
 
@@ -123,7 +146,16 @@ test those on a phone.
 2. Keep the defaults. Vercel detects Next.js and runs `pnpm build`. No environment variables are
    needed.
 3. Set `siteUrl` in `src/site.config.ts` to your production URL (used for social-share images and
-   the sitemap) and push.
+   the sitemap) and push. It is currently `https://qr.cekapsys.com`.
+
+### Custom domain (qr.cekapsys.com)
+
+1. In the Vercel project, open **Settings → Domains** and add `qr.cekapsys.com`.
+2. At the DNS provider for `cekapsys.com`, add a `CNAME` record for `qr` pointing to the target
+   Vercel shows (usually `cname.vercel-dns.com`).
+3. Wait for Vercel to verify the domain and issue the HTTPS certificate (usually a few minutes).
+   If you keep the `*.vercel.app` URL as well, set it to redirect to `qr.cekapsys.com` so links,
+   drafts and installed PWAs all use one origin. Drafts are stored per domain.
 
 Any static host works too: upload the `out/` folder and apply the headers in `vercel.json` there.
 Vercel’s preview toolbar is blocked by the strict CSP. Relax `script-src` in `vercel.json` if you

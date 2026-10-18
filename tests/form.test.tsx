@@ -46,7 +46,7 @@ describe("vCard form", () => {
       const payload = screen.getByTestId("payload").textContent ?? "";
       expect(payload).toContain("FN;CHARSET=UTF-8:রহিম");
       expect(payload).toContain("TEL;TYPE=CELL:+8801712345678");
-      expect(payload).toContain("EMAIL;TYPE=INTERNET,WORK:rahim@example.com");
+      expect(payload).toContain("EMAIL;TYPE=WORK:rahim@example.com");
       expect(payload).toContain("item1.URL:https://wa.me/8801712345678");
     });
   });

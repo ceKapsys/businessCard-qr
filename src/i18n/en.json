@@ -18,8 +18,14 @@
       "label": "Contact card",
       "description": "Saves your details straight into the phonebook."
     },
-    "whatsapp": { "label": "WhatsApp", "description": "Opens a WhatsApp chat with you." },
-    "url": { "label": "Link", "description": "Opens a website." },
+    "whatsapp": {
+      "label": "WhatsApp",
+      "description": "Opens a WhatsApp chat with you."
+    },
+    "url": {
+      "label": "Link",
+      "description": "Opens a website."
+    },
     "wifi": {
       "label": "Wi-Fi",
       "description": "Joins a Wi-Fi network without typing the password."
@@ -43,13 +49,36 @@
     "removeRow": "Remove {label} {index}"
   },
   "fields": {
-    "firstName": { "label": "First name", "placeholder": "Rahim" },
-    "lastName": { "label": "Last name", "placeholder": "Uddin" },
-    "org": { "label": "Company", "placeholder": "Acme Ltd." },
-    "title": { "label": "Job title", "placeholder": "Sales Manager" },
-    "phones": { "label": "Phone", "placeholder": "01712-345678", "add": "Add phone" },
-    "emails": { "label": "Email", "placeholder": "you@example.com", "add": "Add email" },
-    "website": { "label": "Website", "placeholder": "example.com" },
+    "firstName": {
+      "label": "First name",
+      "placeholder": "Rahim"
+    },
+    "lastName": {
+      "label": "Last name",
+      "placeholder": "Uddin"
+    },
+    "org": {
+      "label": "Company",
+      "placeholder": "Acme Ltd."
+    },
+    "title": {
+      "label": "Job title",
+      "placeholder": "Sales Manager"
+    },
+    "phones": {
+      "label": "Phone",
+      "placeholder": "01712-345678",
+      "add": "Add phone"
+    },
+    "emails": {
+      "label": "Email",
+      "placeholder": "you@example.com",
+      "add": "Add email"
+    },
+    "website": {
+      "label": "Website",
+      "placeholder": "example.com"
+    },
     "whatsappSameAsMobile": {
       "label": "WhatsApp is the same as my mobile number",
       "description": "Uses the first mobile number above."
@@ -59,10 +88,26 @@
       "placeholder": "01712-345678",
       "description": "Local numbers are assumed to be in Bangladesh (+880)."
     },
-    "linkedin": { "label": "LinkedIn", "placeholder": "linkedin.com/in/yourname" },
-    "facebook": { "label": "Facebook", "placeholder": "facebook.com/yourname" },
-    "instagram": { "label": "Instagram", "placeholder": "instagram.com/yourname" },
-    "x": { "label": "X (Twitter)", "placeholder": "x.com/yourname" },
+    "whatsappLink": {
+      "label": "Add a WhatsApp chat link",
+      "description": "Adds about 70 bytes. Turn it off for very small prints — WhatsApp still finds you through your mobile number."
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "placeholder": "linkedin.com/in/yourname"
+    },
+    "facebook": {
+      "label": "Facebook",
+      "placeholder": "facebook.com/yourname"
+    },
+    "instagram": {
+      "label": "Instagram",
+      "placeholder": "instagram.com/yourname"
+    },
+    "x": {
+      "label": "X (Twitter)",
+      "placeholder": "x.com/yourname"
+    },
     "address": {
       "label": "Address",
       "street": "Street",
@@ -80,14 +125,28 @@
       "label": "Pre-filled message",
       "placeholder": "Hi! I got your number from your card."
     },
-    "url": { "label": "Link", "placeholder": "https://example.com" },
-    "ssid": { "label": "Network name (SSID)", "placeholder": "MyHomeWiFi" },
+    "url": {
+      "label": "Link",
+      "placeholder": "https://example.com"
+    },
+    "ssid": {
+      "label": "Network name (SSID)",
+      "placeholder": "MyHomeWiFi"
+    },
     "security": {
       "label": "Security",
-      "options": { "WPA": "WPA / WPA2 / WPA3", "WEP": "WEP", "nopass": "None (open network)" }
+      "options": {
+        "WPA": "WPA / WPA2 / WPA3",
+        "WEP": "WEP",
+        "nopass": "None (open network)"
+      }
     },
-    "password": { "label": "Password" },
-    "hidden": { "label": "Hidden network" }
+    "password": {
+      "label": "Password"
+    },
+    "hidden": {
+      "label": "Hidden network"
+    }
   },
   "errors": {
     "required": "This field is required.",
@@ -153,13 +212,19 @@
   },
   "density": {
     "label": "Scan density",
-    "good": "Good — easy to scan",
-    "ok": "OK — scan at a reasonable size",
-    "risky": "Risky — may be hard to scan",
+    "printSize": "Printed size (mm)",
+    "printSizeHint": "Width of the QR on your card, e.g. 25 mm.",
+    "good": "Good — scans easily at this size",
+    "ok": "OK — most phones will scan it",
+    "risky": "Risky — too dense for this print size",
     "tooLong": "Too much data for a QR code",
-    "details": "{bytes} bytes · version {version} · {modules}×{modules} modules",
-    "hintRisky": "Remove the note or logo, or shorten some fields, to improve scanning.",
+    "details": "{bytes} bytes · {modules}×{modules} modules · {moduleMm} mm per module at {printMm} mm",
+    "hintMinSize": "Print it at least {mm} mm wide, or remove some details below.",
+    "hintLogo": "A logo forces high error correction, which makes the code much denser. Remove it for small prints.",
     "hintTooLong": "Remove some details — this cannot fit in a QR code.",
+    "biggest": "Biggest items in the code:",
+    "bytes": "{bytes} B",
+    "optimise": "Optimise design for small print",
     "lowContrast": "Low contrast between foreground and background — the code may not scan.",
     "inverted": "Light dots on a dark background don’t scan on some phones."
   },
@@ -195,6 +260,13 @@
     "empty": "Fill in the form to generate your QR code.",
     "error": "The preview could not be drawn."
   },
-  "theme": { "label": "Theme", "system": "System", "light": "Light", "dark": "Dark" },
-  "language": { "label": "Language" }
+  "theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "label": "Language"
+  }
 }

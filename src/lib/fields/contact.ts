@@ -56,4 +56,14 @@ export const contactFields: FieldDef[] = [
     visibleWhen: (values) => values.whatsappSameAsMobile === false,
     autoComplete: "tel",
   },
+  {
+    id: "whatsappLink",
+    labelKey: "fields.whatsappLink.label",
+    descriptionKey: "fields.whatsappLink.description",
+    type: "toggle",
+    group: "contact",
+    zod: toggle(),
+    defaultValue: true,
+    addsContent: true,
+  },
 ];

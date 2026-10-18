@@ -11,7 +11,7 @@ import type { QrEncoder } from "./types";
  * How simple one-value fields map onto vCard properties. Name, phones,
  * emails, WhatsApp and address need custom logic and are handled below.
  *
- * - `text`: escaped text property with CHARSET=UTF-8 (e.g. ORG, NOTE)
+ * - `text`: escaped text property, with CHARSET=UTF-8 when non-ASCII (e.g. ORG, NOTE)
  * - `uri`:  URL-valued property (e.g. URL)
  * - `item`: labelled link, emitted as `itemN.URL` + `itemN.X-ABLabel`
  */
@@ -38,6 +38,17 @@ type Line = { property: string; text: string };
 
 const CRLF = "\r\n";
 const UTF8 = "CHARSET=UTF-8";
+
+/**
+ * CHARSET=UTF-8 only where a value actually contains non-ASCII text (e.g.
+ * Bangla). vCard 3.0 readers default to UTF-8 anyway, and skipping the
+ * parameter on plain-ASCII lines saves ~14 bytes each — real QR density at
+ * business-card sizes.
+ */
+function charset(...values: string[]): string[] {
+  const nonAscii = (v: string) => [...v].some((c) => c.charCodeAt(0) > 127);
+  return values.some(nonAscii) ? [UTF8] : [];
+}
 
 export function displayName(values: FormValues): string {
   const name = [getString(values, "firstName"), getString(values, "lastName")]
@@ -71,8 +82,8 @@ export function encodeVCard(values: FormValues): string {
   const fn = displayName(values);
   if (!fn) return "";
 
-  add("N", [UTF8], [last, first, "", "", ""].map(escapeVCardText).join(";"));
-  add("FN", [UTF8], escapeVCardText(fn));
+  add("N", charset(last, first), [last, first, "", "", ""].map(escapeVCardText).join(";"));
+  add("FN", charset(fn), escapeVCardText(fn));
 
   // Phones: normalised to E.164; invalid numbers are dropped.
   const cellNumbers = new Set<string>();
@@ -86,22 +97,24 @@ export function encodeVCard(values: FormValues): string {
   for (const row of getRows(values, "emails")) {
     const email = row.value.trim();
     if (!email.includes("@")) continue;
-    add("EMAIL", [`TYPE=INTERNET,${row.type || "WORK"}`], sanitizeVCardUri(email));
+    add("EMAIL", [`TYPE=${row.type || "WORK"}`], sanitizeVCardUri(email));
   }
 
   // WhatsApp finds people through the phonebook, so the number must also be a
-  // mobile TEL. The wa.me item gives a tappable "WhatsApp" link on the card.
+  // mobile TEL. The optional wa.me item adds a tappable "WhatsApp" link (~70 bytes).
   const wa = whatsappNumber(values);
   if (wa) {
     if (!cellNumbers.has(wa)) add("TEL", ["TYPE=CELL"], wa);
-    items.push([`URL:https://wa.me/${toWhatsAppDigits(wa)}`, "X-ABLabel:WhatsApp"]);
+    if (values.whatsappLink !== false) {
+      items.push([`URL:https://wa.me/${toWhatsAppDigits(wa)}`, "X-ABLabel:WhatsApp"]);
+    }
   }
 
   for (const [id, mapping] of Object.entries(VCARD_FIELD_MAP)) {
     const raw = getString(values, id);
     if (!raw) continue;
     if (mapping.kind === "text") {
-      add(mapping.property, [UTF8], escapeVCardText(raw));
+      add(mapping.property, charset(raw), escapeVCardText(raw));
     } else {
       const href = normalizeUrl(raw);
       if (!href) continue;
@@ -118,7 +131,7 @@ export function encodeVCard(values: FormValues): string {
     if (parts.some(Boolean)) {
       add(
         "ADR",
-        [UTF8, `TYPE=${adr.type || "WORK"}`],
+        [...charset(...parts), `TYPE=${adr.type || "WORK"}`],
         ["", "", ...parts].map(escapeVCardText).join(";"),
       );
     }

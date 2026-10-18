@@ -17,5 +17,5 @@ export function usePayload() {
   const debounced = useDebouncedValue(values, PREVIEW_DEBOUNCE_MS);
   const payload = useMemo(() => encoder.encode(debounced), [encoder, debounced]);
   const name = useMemo(() => encoder.fileName(debounced), [encoder, debounced]);
-  return { encoder, payload, name };
+  return { encoder, values: debounced, payload, name };
 }

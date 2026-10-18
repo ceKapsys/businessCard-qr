@@ -11,11 +11,22 @@ export const DEFAULT_STYLE: DesignStyle = {
   cornerSquareStyle: "square",
   cornerDotStyle: "square",
   marginPct: 4,
-  ecc: "M",
+  // Low ECC = fewer modules = bigger modules at a given print size. For a clean
+  // printed business card that matters far more than damage tolerance.
+  ecc: "L",
   logoSize: 0.18,
 };
 
 export const DEFAULT_DESIGN: DesignOptions = { ...DEFAULT_STYLE, logo: null };
+
+/** Applied by "Optimise for small print": plain square modules, lowest ECC. */
+export const SMALL_PRINT_STYLE = {
+  ecc: "L",
+  dotStyle: "square",
+  cornerSquareStyle: "square",
+  cornerDotStyle: "square",
+  marginPct: 4,
+} as const satisfies Partial<DesignStyle>;
 
 /** Built-in presets. Add more here; `nameKey` is an i18n key. */
 export const BUILT_IN_PRESETS: DesignPreset[] = [
@@ -53,7 +64,7 @@ export const BUILT_IN_PRESETS: DesignPreset[] = [
       dotStyle: "dots",
       cornerSquareStyle: "extra-rounded",
       cornerDotStyle: "dot",
-      ecc: "Q",
+      ecc: "M",
     },
   },
 ];
